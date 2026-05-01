@@ -17,6 +17,9 @@ class OrderService:
                 params["price"] = price
                 params["timeInForce"] = "GTC"
 
+            elif order_type == "STOP":
+                params["stopPrice"] = price
+
             response = self.client.futures_create_order(**params)
 
             logging.info(f"Order Response: {response}")
